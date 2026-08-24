@@ -3,22 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive 3D Cosmic Galaxy</title>
-    <!-- Link to external CSS stylesheet -->
+    <title>Dynamic Cosmic Theme Generator</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- UI Overlay for instructions -->
-    <div class="interface">
-        <h1>COSMIC SIMULATOR</h1>
-        <p>Move mouse to tilt & rotate | Click and drag to warp space</p>
-    </div>
-
-    <!-- The rendering screen for the galaxy -->
+    <!-- Ambient Cosmic Particle Canvas Background -->
     <canvas id="galaxyCanvas"></canvas>
 
-    <!-- Link to external JavaScript file -->
+    <!-- Content Control Dashboard Panel -->
+    <div class="control-panel">
+        <h1>Cosmic Theme Customizer</h1>
+        <p>Upload any picture below. Our engine will read its colors to generate a matching nebula background color theme automatically.</p>
+        
+        <!-- Custom Stylized Upload Button -->
+        <label for="imageUpload" class="upload-btn">Choose Theme Image</label>
+        <input type="file" id="imageUpload" accept="image/*">
+        
+        <div id="statusMessage" class="status">Using default stellar theme</div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
