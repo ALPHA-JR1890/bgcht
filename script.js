@@ -125,7 +125,7 @@ function extractThemeColors(imageSrc) {
         hiddenCtx.drawImage(img, 0, 0, 40, 40);
         const imgData = hiddenCtx.getImageData(0, 0, 40, 40).data;
         
-        // Sampling opposite poles of image grid coordinates to find rich matching theme variations
+        // Sampling different parts of the image to find diverse matching colors
         let idx1 = Math.floor(imgData.length * 0.25 / 4) * 4;
         let idx2 = Math.floor(imgData.length * 0.75 / 4) * 4;
         
@@ -139,28 +139,27 @@ function extractThemeColors(imageSrc) {
             b: Math.floor(themeColors.secondary.b * 0.06 + 3)
         };
 
-        // Update active CSS system variables smoothly to recolor glass panel buttons dynamically
+        // Update active CSS variables to recolor layout components dynamically
         rootElement.style.setProperty('--theme-primary', `rgb(${themeColors.primary.r}, ${themeColors.primary.g}, ${themeColors.primary.b})`);
         rootElement.style.setProperty('--theme-secondary', `rgb(${themeColors.secondary.r}, ${themeColors.secondary.g}, ${themeColors.secondary.b})`);
     };
 }
 
-// LocalStorage Persistence Management System Engine
+// LocalStorage Persistence Management Engine
 function saveThemeToLocalStorage(base64Data) {
     try {
-        localStorage.setItem('user_cosmic_theme_img', base64Data);
-        statusMessage.textContent = "Theme saved into device Memory successfully!";
+        localStorage.setItem('user_cosmic_theme_img_bg_only', base64Data);
+        statusMessage.textContent = "Theme Saved";
     } catch(err) {
-        // LocalStorage constraints bypass catch logic handle
-        statusMessage.textContent = "Theme updated! (File too large to fit standard memory quota)";
+        statusMessage.textContent = "Theme Updated";
     }
 }
 
 function loadSavedThemeFromStorage() {
-    const savedImg = localStorage.getItem('user_cosmic_theme_img');
+    const savedImg = localStorage.getItem('user_cosmic_theme_img_bg_only');
     if (savedImg) {
         extractThemeColors(savedImg);
-        statusMessage.textContent = "Restored saved custom cosmic theme from memory";
+        statusMessage.textContent = "Restored Custom Theme";
     }
 }
 
