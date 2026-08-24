@@ -1,4 +1,4 @@
-/* Reset margins and hide scrollbars to ensure a full-screen experience */
+/* Full-screen Reset and Aesthetic Normalization */
 * {
     box-sizing: border-box;
 }
@@ -10,43 +10,87 @@ body, html {
     height: 100%;
     overflow: hidden;
     background-color: #020205;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
 }
 
-/* Canvas occupies the entire viewport background */
-canvas {
-    display: block;
+/* Background Canvas Layer */
+#galaxyCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100vw;
     height: 100vh;
-    cursor: grab;
+    z-index: 1;
+    pointer-events: none; /* Insulates background from any accidental clicking interference */
 }
 
-canvas:active {
-    cursor: grabbing;
-}
-
-/* UI overlay for instructions */
-.interface {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    color: rgba(255, 255, 255, 0.7);
-    pointer-events: none; /* Allows mouse interactions to pass through to the canvas */
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+/* Floating Clean Control Dashboard */
+.control-panel {
+    position: relative;
+    z-index: 10;
+    background: rgba(10, 10, 20, 0.45);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 30px;
+    width: 90%;
+    max-width: 420px;
+    margin: 40px auto;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transition: border-color 0.5s ease;
 }
 
 h1 {
-    margin: 0 0 5px 0;
-    font-size: 1.5rem;
-    font-weight: 400;
-    letter-spacing: 2px;
-    background: linear-gradient(45deg, #ff7bf2, #3b82f6);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    margin: 0 0 12px 0;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: 0.5px;
 }
 
 p {
-    margin: 0;
+    margin: 0 0 24px 0;
     font-size: 0.85rem;
-    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.5;
+}
+
+/* Hiding original native input button */
+input[type="file"] {
+    display: none;
+}
+
+/* Custom modern Glassmorphic Upload Button trigger styling */
+.upload-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: linear-gradient(135deg, var(--theme-primary, #3b82f6), var(--theme-secondary, #ff7bf2));
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.upload-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 123, 242, 0.4);
+    filter: brightness(1.1);
+}
+
+.upload-btn:active {
+    transform: translateY(0);
+}
+
+/* Tiny notification label update log element */
+.status {
+    margin-top: 15px;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.4);
+    letter-spacing: 0.5px;
 }
