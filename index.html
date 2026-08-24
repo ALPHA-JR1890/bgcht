@@ -3,21 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cosmic Dynamic Theme Background</title>
+    <title>Cosmic Space Hub & Free Live Messenger</title>
+    <!-- External stylesheet modules -->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="chat.css">
+    <!-- Free Live-Sync Realtime Web Pipeline CDN Provider -->
+    <script src="https://ably.com"></script>
 </head>
 <body>
 
-    <!-- Ambient Cosmic Particle Canvas Background -->
+    <!-- Ambient Cosmic Particle Canvas Background Element -->
     <canvas id="galaxyCanvas"></canvas>
 
-    <!-- Top Corner Navigation (Pins upload trigger to top right corner) -->
+    <!-- Top Navigation Utility bar (Pins upload trigger to top right corner) -->
     <header class="top-nav">
         <div id="statusMessage" class="status-badge">Default Theme Active</div>
-        <label for="imageUpload" class="upload-btn">Choose Theme Image</label>
+        <label for="imageUpload" class="action-btn upload-corner-btn">Choose Theme Image</label>
         <input type="file" id="imageUpload" accept="image/*">
     </header>
 
+    <!-- App Content Wrapper Container -->
+    <main class="app-container">
+        <!-- Live Messaging Center Glass Panel Grid Box Shell -->
+        <div class="panel chat-panel">
+            
+            
+            <div id="authPortal" class="chat-auth">
+                <h2>Join Cosmic Chat Thread</h2>
+                <p>Enter your profile details to connect to the external group bridge.</p>
+                <div class="input-group">
+                    <input type="text" id="userNameInput" placeholder="Your Name (e.g., Bob)" autocomplete="off">
+                    <input type="tel" id="userPhoneInput" placeholder="Your Phone/ID Number (e.g., 555-0123)" autocomplete="off">
+                </div>
+                <button id="joinChatBtn" class="action-btn format-btn">Initialize Connection</button>
+            </div>
+
+            <!-- Active Operational Live Group Chat Room Terminal -->
+            <div id="chatRoom" class="chat-room hidden">
+                <div class="chat-header">
+                    <div class="room-title">🚀 Deep Space Relay Network</div>
+                    <div class="room-status">Connected as <span id="activeUserName">Guest</span></div>
+                </div>
+                
+                <!-- Chat Feed Message Stream Shell View -->
+                <div id="chatMessageFeed" class="chat-feed">
+                    <div class="system-msg">System: Welcome to the local channel. Messages typed here route out to everyone inside this room.</div>
+                </div>
+
+                <!-- Messaging Action Form Footer Input Bar -->
+                <div class="chat-footer">
+                    <input type="text" id="chatMessageInput" placeholder="Broadcast a transmission..." autocomplete="off">
+                    <button id="sendTransmissionBtn" class="send-btn">➔</button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Script Application Execution Infrastructure Logic Links -->
     <script src="script.js"></script>
+    <script src="chat.js"></script>
 </body>
 </html>
