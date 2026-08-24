@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic Cosmic Theme Generator</title>
+    <title>Cosmic Dynamic Theme Background</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,17 +11,12 @@
     <!-- Ambient Cosmic Particle Canvas Background -->
     <canvas id="galaxyCanvas"></canvas>
 
-    <!-- Content Control Dashboard Panel -->
-    <div class="control-panel">
-        <h1>Cosmic Theme Customizer</h1>
-        <p>Upload any picture below. Our engine will read its colors to generate a matching nebula background color theme automatically.</p>
-        
-        <!-- Custom Stylized Upload Button -->
+    <!-- Top Corner Navigation (Pins upload trigger to top right corner) -->
+    <header class="top-nav">
+        <div id="statusMessage" class="status-badge">Default Theme Active</div>
         <label for="imageUpload" class="upload-btn">Choose Theme Image</label>
         <input type="file" id="imageUpload" accept="image/*">
-        
-        <div id="statusMessage" class="status">Using default stellar theme</div>
-    </div>
+    </header>
 
     <script src="script.js"></script>
 </body>
