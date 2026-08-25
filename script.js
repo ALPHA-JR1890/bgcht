@@ -159,7 +159,7 @@ function loadSavedThemeFromStorage() {
     const savedImg = localStorage.getItem('user_cosmic_theme_img_bg_only');
     if (savedImg) {
         extractThemeColors(savedImg);
-        statusMessage.textContent = "Restored Custom Theme";
+        statusMessage.textContent = "";
     }
 }
 
